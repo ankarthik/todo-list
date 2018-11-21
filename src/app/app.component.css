@@ -22,24 +22,21 @@ h1 {
 }
 .ngx-dnd-item .pull-right {
     color: #f00; 
-    float: right; 
     cursor: pointer;
-}
-.ngx-dnd-item .mat-icon {
-    vertical-align: middle;
+    float: right;
 }
 input {
     border: none;
     background: none;
     font-size: inherit;
     padding-left: 10px;
-    vertical-align: middle;
 }
 .time-picker {
     width: 45px;
 }
 .ngx-dnd-item div {
-    display: inline;
+    display: inline-flex;
+    vertical-align: middle;
 }
 .yet-to-come {
     background-color: orange;
@@ -51,3 +48,4 @@ div.buttons {
 div.buttons button {
     margin: 0px 10px;
 }
+

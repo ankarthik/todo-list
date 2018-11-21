@@ -9,6 +9,9 @@
         <ngx-material-timepicker-toggle [for]="toggleTimepicker"></ngx-material-timepicker-toggle>
         <ngx-material-timepicker #toggleTimepicker></ngx-material-timepicker>
     </div>
+    <mat-form-field class="example-full-width">
+        <mat-slide-toggle [(ngModel)]="task.status">Status</mat-slide-toggle>
+    </mat-form-field>
 </div>
 <div mat-dialog-actions>
     <button mat-button (click)="onNoClick()">Cancel</button>

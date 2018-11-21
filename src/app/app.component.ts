@@ -12,7 +12,7 @@ import { DataService } from './data.service';
 export class AppComponent {
   title = 'Task Manager';
 
-  tasks: { 'id': number, 'task': string, 'time': string }[];
+  tasks: { 'id': number, 'task': string, 'time': string, 'status': boolean }[];
   today = Date.now();
 
   constructor(private dialog: MatDialog, public snackBar: MatSnackBar, private data: DataService) {
@@ -67,7 +67,7 @@ export class AppComponent {
 })
 export class AppAddTaskComponent {
 
-  task = { 'id': 0, 'task': '', 'time': '' };
+  task = { 'id': 0, 'task': '', 'time': '', 'status': false };
 
   constructor(
     public dialogRef: MatDialogRef<AppAddTaskComponent>,

@@ -1,0 +1,30 @@
+h1 {
+    background-color: #387ef5;
+    color: #FFF;
+    margin: 0;
+    padding: 20px;
+    font-family: Helvetica;
+    font-weight: normal;
+}
+.ngx-dnd-container:nth-child(odd) {
+    background-color: #eee;
+    width: 60%;
+    margin: auto;
+}
+.ngx-dnd-container {
+    border: 2px solid #ddd;
+}
+.ngx-dnd-item {
+    background-color: #ddd;
+    border: 1px solid #ccc;
+}
+.ngx-dnd-item mat-icon {
+    color: #f00; 
+    float: right; 
+    cursor: pointer;
+}
+input {
+    border: none;
+    background: none;
+    font-size: inherit;
+}

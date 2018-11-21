@@ -1,0 +1,19 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    {{ title }}
+  </h1>
+</div>
+
+<div style="text-align: right;padding: 10px">
+  <button mat-fab style="background-color: green;" (click)="addTask()">
+    <mat-icon style="color: #FFF;">add</mat-icon>
+  </button>
+</div>
+
+<div class="ngx-dnd-container" ngxDroppable>
+  <div class="ngx-dnd-item" ngxDraggable *ngFor="let task of tasks">
+    <input type="text" [(ngModel)]="task.task" (keyup)="updateTask(task)" />
+    <mat-icon (click)="deleteTask(task)">delete</mat-icon>
+  </div>
+</div>

@@ -11,9 +11,9 @@ export class DataService {
   id = 4;
 
   public tasks = [
-    { 'id': 1, 'task': 'First task'},
-    { 'id': 2, 'task': 'Second task'},
-    { 'id': 3, 'task': 'Third task'}
+    { 'id': 1, 'task': 'First task', 'time': '12:00' },
+    { 'id': 2, 'task': 'Second task', 'time': '18:00'},
+    { 'id': 3, 'task': 'Third task', 'time': '22:00'}
   ];
 
   postTask (task) {

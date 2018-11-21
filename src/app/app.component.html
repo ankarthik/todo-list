@@ -12,8 +12,19 @@
 </div>
 
 <div class="ngx-dnd-container" ngxDroppable>
-  <div class="ngx-dnd-item" ngxDraggable *ngFor="let task of tasks">
-    <input type="text" [(ngModel)]="task.task" (keyup)="updateTask(task)" />
-    <mat-icon (click)="deleteTask(task)">delete</mat-icon>
+  <div class="ngx-dnd-item" ngxDraggable *ngFor="let task of tasks" [ngClass]="{'yet-to-come': task.time.replace(':') > (today | date: 'HH:mm').replace(':')}">
+    <div>
+      <mat-icon aria-hidden="true" ngxDragHandle>reorder</mat-icon>
+      <input type="text" [(ngModel)]="task.task" (keyup)="updateTask(task)" />
+    </div>
+    <div>
+      <input class="time-picker" [(ngModel)]="task.time" [ngxTimepicker]="toggleTimepicker" [disableClick]="true" [format]="24" readonly>
+      <ngx-material-timepicker-toggle [for]="toggleTimepicker"></ngx-material-timepicker-toggle>
+      <ngx-material-timepicker #toggleTimepicker></ngx-material-timepicker>
+    </div>
+    <div>
+      <mat-icon class="pull-right" (click)="deleteTask(task)">delete</mat-icon>
+    </div>
+
   </div>
 </div>

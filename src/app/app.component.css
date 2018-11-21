@@ -1,15 +1,17 @@
 h1 {
-    background-color: #387ef5;
+    background-color: dodgerblue;
     color: #FFF;
     margin: 0;
     padding: 20px;
     font-family: Helvetica;
     font-weight: normal;
+    opacity: 0.8;
 }
 .ngx-dnd-container:nth-child(odd) {
     background-color: #eee;
     width: 60%;
     margin: auto;
+    min-width: 300px;
 }
 .ngx-dnd-container {
     border: 2px solid #ddd;
@@ -18,13 +20,27 @@ h1 {
     background-color: #ddd;
     border: 1px solid #ccc;
 }
-.ngx-dnd-item mat-icon {
+.ngx-dnd-item .pull-right {
     color: #f00; 
     float: right; 
     cursor: pointer;
+}
+.ngx-dnd-item .mat-icon {
+    vertical-align: middle;
 }
 input {
     border: none;
     background: none;
     font-size: inherit;
+    padding-left: 10px;
+    vertical-align: middle;
+}
+.time-picker {
+    width: 45px;
+}
+.ngx-dnd-item div {
+    display: inline;
+}
+.yet-to-come {
+    background-color: orange;
 }

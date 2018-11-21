@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 import { NgxDnDModule } from '@swimlane/ngx-dnd';
+import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
@@ -23,6 +24,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   ],
   imports: [
     NgxDnDModule,
+    NgxMaterialTimepickerModule.forRoot(),
     BrowserModule,
     HttpClientModule,
     MatListModule,

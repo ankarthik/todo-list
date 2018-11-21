@@ -1,4 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: 'Roboto', sans-serif; }
+body { margin: 0; font-family: 'Roboto', sans-serif; background-image: url('assets/background.jpg')}
+.ngx-material-timepicker-toggle[_ngcontent-c3] {
+    display: inline !important;
+    padding: 0px !important;
+    vertical-align: middle !important;
+}
+.toggle-example {
+    border-bottom: 1px solid #949494;
+    display: inline-block;
+}
+.toggle-example input {
+    border: none;
+}

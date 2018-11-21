@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { MatSnackBar } from '@angular/material';
 
@@ -12,10 +12,14 @@ import { DataService } from './data.service';
 export class AppComponent {
   title = 'Task Manager';
 
-  tasks: { 'id': number, 'task': string}[];
+  tasks: { 'id': number, 'task': string, 'time': string}[];
+  today = Date.now();
 
   constructor(private dialog: MatDialog, public snackBar: MatSnackBar, private data: DataService) {
     this.getTasks();
+    setInterval(() => {
+      this.today = Date.now();
+    }, 1000);
   }
 
   getTasks() {
@@ -55,7 +59,7 @@ export class AppComponent {
 })
 export class AppAddTaskComponent {
 
-  task = { 'id': 0, 'task': '' };
+  task = { 'id': 0, 'task': '', 'time': ''};
 
   constructor(
     public dialogRef: MatDialogRef<AppAddTaskComponent>,
@@ -70,6 +74,11 @@ export class AppAddTaskComponent {
 
   addTask() {
     if (!this.task.task) {
+      this.errorHandle();
+      this.dialogRef.close();
+      return;
+    }
+    if (!this.task.time) {
       this.errorHandle();
       this.dialogRef.close();
       return;

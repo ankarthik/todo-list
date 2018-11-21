@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { MatSnackBar } from '@angular/material';
 
@@ -12,7 +12,7 @@ import { DataService } from './data.service';
 export class AppComponent {
   title = 'Task Manager';
 
-  tasks: { 'id': number, 'task': string, 'time': string}[];
+  tasks: { 'id': number, 'task': string, 'time': string }[];
   today = Date.now();
 
   constructor(private dialog: MatDialog, public snackBar: MatSnackBar, private data: DataService) {
@@ -23,7 +23,9 @@ export class AppComponent {
   }
 
   getTasks() {
+    this.tasks = [];
     this.tasks = this.data.getTasks();
+    this.sort();
   }
 
   updateTask(task) {
@@ -46,6 +48,12 @@ export class AppComponent {
     });
   }
 
+  sort() {
+    this.tasks.sort((a, b) => {
+      return parseInt(a.time.replace(':', ''), 10) - parseInt(b.time.replace(':', ''), 10);
+    });
+  }
+
   errorHandle() {
     this.snackBar.openFromComponent(ErrorHandleComponent, {
       duration: 500,
@@ -59,7 +67,7 @@ export class AppComponent {
 })
 export class AppAddTaskComponent {
 
-  task = { 'id': 0, 'task': '', 'time': ''};
+  task = { 'id': 0, 'task': '', 'time': '' };
 
   constructor(
     public dialogRef: MatDialogRef<AppAddTaskComponent>,

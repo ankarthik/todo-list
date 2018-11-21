@@ -5,26 +5,29 @@
   </h1>
 </div>
 
-<div style="text-align: right;padding: 10px">
+<div class="buttons">
+  <button mat-fab style="background-color: green;" (click)="sort()">
+    <mat-icon class="sort" (click)="getTasks()" aria-hidden="true">sort</mat-icon>
+  </button>
   <button mat-fab style="background-color: green;" (click)="addTask()">
     <mat-icon style="color: #FFF;">add</mat-icon>
   </button>
 </div>
 
-<div class="ngx-dnd-container" ngxDroppable>
-  <div class="ngx-dnd-item" ngxDraggable *ngFor="let task of tasks" [ngClass]="{'yet-to-come': task.time.replace(':') > (today | date: 'HH:mm').replace(':')}">
+<div class="ngx-dnd-container" ngxDroppable [model]="tasks">
+  <div class="ngx-dnd-item" ngxDraggable *ngFor="let task of tasks" [model]="task" [ngClass]="{'yet-to-come': task.time.replace(':', '') > (today | date: 'HHmm').replace(':', '')}">
     <div>
       <mat-icon aria-hidden="true" ngxDragHandle>reorder</mat-icon>
       <input type="text" [(ngModel)]="task.task" (keyup)="updateTask(task)" />
     </div>
     <div>
-      <input class="time-picker" [(ngModel)]="task.time" [ngxTimepicker]="toggleTimepicker" [disableClick]="true" [format]="24" readonly>
+      <input class="time-picker" [(ngModel)]="task.time" [ngxTimepicker]="toggleTimepicker" [disableClick]="true"
+        [format]="24" readonly>
       <ngx-material-timepicker-toggle [for]="toggleTimepicker"></ngx-material-timepicker-toggle>
       <ngx-material-timepicker #toggleTimepicker></ngx-material-timepicker>
     </div>
     <div>
       <mat-icon class="pull-right" (click)="deleteTask(task)">delete</mat-icon>
     </div>
-
   </div>
 </div>

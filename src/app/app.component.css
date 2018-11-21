@@ -44,3 +44,10 @@ input {
 .yet-to-come {
     background-color: orange;
 }
+div.buttons {
+    text-align: right;
+    padding: 10px
+}
+div.buttons button {
+    margin: 0px 10px;
+}
